@@ -73,8 +73,8 @@ export default function Home() {
           <div className="brand">
             <Image src="/img/logo-diente.webp" alt="" width={34} height={34} className="brand-logo" />
             <div>
-              <strong>{WEBINAR.experta}</strong>
-              <span>Odontología y formación profesional</span>
+              <strong>{WEBINAR.nombre}</strong>
+              <span>Clase en vivo y gratuita con la {WEBINAR.experta}</span>
             </div>
           </div>
           <div className="topbar-fecha">
@@ -91,15 +91,13 @@ export default function Home() {
         <div className="wrap hero-grid">
           <div className="hero-copy">
             <span className="badge">Webinar gratuito · Cupos limitados</span>
-            <p className="hero-kicker">
-              Odontología <b>Digital</b>
-            </p>
             <h1>
-              Incorporá la odontología digital a tu consultorio <em>con criterio y sin invertir a ciegas</em>
+              Incorporá la odontología digital a tu práctica{" "}
+              <em>sin comprar tecnología a ciegas ni depender de una marca</em>
             </h1>
             <p className="hero-sub">
-              Ahorrá tiempo en cada tratamiento, lográ resultados más precisos y hacé tu consultorio más rentable,
-              aunque todavía no tengas escáner.
+              Una clase en vivo para trabajar con mayor precisión, optimizar tiempos y costos y ofrecer resultados
+              más predecibles a tus pacientes.
             </p>
             <FechaHora />
             <p className="form-intro">Completá tus datos para reservar tu lugar gratis:</p>

@@ -85,9 +85,7 @@ em { font-style: normal; }
 }
 .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: end; }
 .hero-copy { padding: 56px 0 64px; }
-.hero-kicker { font-family: var(--titulos); font-weight: 300; font-size: 30px; margin: 22px 0 8px; line-height: 1.1; }
-.hero-kicker b { font-weight: 700; color: var(--verde); }
-.hero h1 { font-size: clamp(30px, 3vw, 42px); font-weight: 700; line-height: 1.18; }
+.hero h1 { font-size: clamp(30px, 3vw, 42px); font-weight: 700; line-height: 1.18; margin-top: 20px; }
 .hero h1 em { color: var(--verde); }
 .hero-sub { font-family: var(--titulos); font-weight: 300; color: var(--gris); font-size: 19px; margin: 16px 0 20px; line-height: 1.4; }
 
@@ -234,7 +232,6 @@ em { font-style: normal; }
   .hero-card { bottom: 12px; left: 0; padding: 8px 12px; }
   .hero-card strong { font-size: 13px; }
   .hero-copy { padding: 28px 0 8px; }
-  .hero-kicker { font-size: 24px; }
   .hero-sub { font-size: 18px; }
   .registro { max-width: none; }
   .btn { width: 100%; font-size: 17px; }
