@@ -112,10 +112,10 @@ export default function Home() {
               priority
             />
             <Image
-              src="/img/laura-leal.webp"
+              src="/img/laura-hero.webp"
               alt="Dra. Laura Leal"
-              width={530}
-              height={1159}
+              width={410}
+              height={1024}
               className="hero-photo"
               priority
             />

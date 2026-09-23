@@ -117,14 +117,14 @@ em { font-style: normal; }
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  height: 94%;
+  transform: translateX(-42%);
+  height: 96%;
   width: auto;
   max-width: none;
-  object-fit: cover;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 80%, transparent 100%), linear-gradient(to right, transparent 0, #000 22%, #000 78%, transparent 100%);
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%), linear-gradient(to right, transparent 0, #000 10%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, transparent 0, #000 14%, #000 80%, transparent 100%), linear-gradient(to right, transparent 0, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%), linear-gradient(to right, transparent 0, #000 10%);
   mask-composite: intersect;
 }
 .hero-card {
