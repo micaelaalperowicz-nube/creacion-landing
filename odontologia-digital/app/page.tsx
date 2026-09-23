@@ -89,13 +89,12 @@ export default function Home() {
           <div className="hero-copy">
             <span className="badge">Webinar gratuito · Cupos limitados</span>
             <h1>
-              Incorporá la odontología digital a tu práctica{" "}
-              <em>sin comprar tecnología a ciegas ni depender de una marca</em>
+              Conocé cómo funciona el <em>flujo digital</em>, <em>qué necesitás para empezar</em> y cómo
+              incorporarlo progresivamente en tu consultorio para trabajar con mayor precisión, optimizar tiempos y
+              costos y lograr <em>resultados más predecibles</em>.
             </h1>
             <p className="hero-sub">
-              En esta clase vas a entender cómo funciona el flujo digital, qué necesitás para empezar y cómo
-              incorporarlo progresivamente en tu consultorio para trabajar con mayor precisión, optimizar tiempos,
-              costos y lograr resultados más predecibles.
+              Sin invertir de más, sin comprar todo el equipamiento desde el inicio y sin depender de una marca.
             </p>
             <FechaHora />
             <p className="form-intro">Completá tus datos para reservar tu lugar gratis:</p>
