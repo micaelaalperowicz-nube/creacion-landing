@@ -81,6 +81,10 @@ em { font-style: normal; }
 .hero h1 { font-size: clamp(30px, 3vw, 42px); font-weight: 700; line-height: 1.18; margin-top: 20px; }
 .hero h1 em { color: var(--verde); }
 .hero-sub { font-family: var(--titulos); font-weight: 300; color: var(--gris); font-size: 19px; margin: 16px 0 20px; line-height: 1.4; }
+.hero-sub { max-width: 560px; text-wrap: pretty; }
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero-sub { max-width: 470px; font-size: 18px; }
+}
 
 .fecha-hora { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 10px 26px; font-weight: 600; font-size: 16px; }
 .center .fecha-hora { justify-content: center; }
@@ -205,7 +209,7 @@ em { font-style: normal; }
   .hero-card { right: auto; left: 24px; bottom: 16px; padding: 8px 12px; }
   .hero-card strong { font-size: 13px; }
   .hero-copy { max-width: none; padding: 28px 0 8px; }
-  .hero-sub { font-size: 18px; }
+  .hero-sub { max-width: none; font-size: 17px; line-height: 1.45; }
   .registro { max-width: none; }
   .btn { width: 100%; font-size: 17px; }
   .strip-inner { flex-direction: column; gap: 10px; }

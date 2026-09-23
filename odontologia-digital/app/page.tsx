@@ -93,8 +93,9 @@ export default function Home() {
               <em>sin comprar tecnología a ciegas ni depender de una marca</em>
             </h1>
             <p className="hero-sub">
-              Una clase en vivo para trabajar con mayor precisión, optimizar tiempos y costos y ofrecer resultados
-              más predecibles a tus pacientes.
+              En esta clase vas a entender cómo funciona el flujo digital, qué necesitás para empezar y cómo
+              incorporarlo progresivamente en tu consultorio para trabajar con mayor precisión, optimizar tiempos,
+              costos y lograr resultados más predecibles.
             </p>
             <FechaHora />
             <p className="form-intro">Completá tus datos para reservar tu lugar gratis:</p>
