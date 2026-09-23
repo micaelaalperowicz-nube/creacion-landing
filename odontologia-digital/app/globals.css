@@ -71,7 +71,6 @@ em { font-style: normal; }
 .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
 .brand { display: flex; align-items: center; gap: 10px; line-height: 1.2; }
 .brand strong { display: block; font-family: var(--titulos); font-size: 16px; }
-.brand span { font-size: 12px; color: var(--gris); }
 .topbar-fecha { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
 .topbar-fecha svg { color: var(--amarillo); flex-shrink: 0; }
 
@@ -222,8 +221,7 @@ em { font-style: normal; }
 @media (max-width: 900px) {
   body { font-size: 16px; }
   .topbar-inner { flex-direction: column; justify-content: center; gap: 6px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
-  .brand span { display: none; }
-  .topbar-fecha { font-size: 13px; }
+  .topbar-fecha { display: none; }
   .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .hero-visual { min-height: 0; height: 380px; }
   .hero-photo { height: 100%; }

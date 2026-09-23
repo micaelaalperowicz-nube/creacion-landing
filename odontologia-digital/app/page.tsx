@@ -72,10 +72,7 @@ export default function Home() {
         <div className="wrap topbar-inner">
           <div className="brand">
             <Image src="/img/logo-diente.webp" alt="" width={34} height={34} className="brand-logo" />
-            <div>
-              <strong>{WEBINAR.nombre}</strong>
-              <span>Clase en vivo y gratuita con la {WEBINAR.experta}</span>
-            </div>
+            <strong>{WEBINAR.nombre}</strong>
           </div>
           <div className="topbar-fecha">
             <CalendarDays size={16} aria-hidden />
