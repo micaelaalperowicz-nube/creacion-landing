@@ -204,7 +204,7 @@ export default function Home() {
       <section className="section">
         <div className="wrap split">
           <div className="split-photo">
-            <Image src="/img/laura-consultorio.webp" alt="Dra. Laura Leal en su consultorio" width={800} height={1397} />
+            <Image src="/img/laura-bio.webp" alt="Dra. Laura Leal en su consultorio" width={800} height={1000} />
           </div>
           <div>
             <span className="eyebrow">¿Es para vos?</span>
@@ -264,7 +264,7 @@ export default function Home() {
             </div>
           </div>
           <div className="split-photo">
-            <Image src="/img/laura-bio.webp" alt="Dra. Laura Leal" width={800} height={1000} />
+            <Image src="/img/laura-sillon.webp" alt="Dra. Laura Leal" width={800} height={1000} />
           </div>
         </div>
       </section>
