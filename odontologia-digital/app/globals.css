@@ -167,6 +167,7 @@ em { font-style: normal; }
 .check-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--blanco); }
 .check-list svg { color: var(--verde); flex-shrink: 0; margin-top: 5px; }
 .check-list.big { font-size: 18px; gap: 16px; }
+.para-vos { max-width: 680px; margin: 0 auto; text-align: left; }
 
 .transparency { margin: 64px auto 0; }
 .transparency p { color: var(--gris); margin: 0 0 26px; }
@@ -199,8 +200,8 @@ em { font-style: normal; }
   body { font-size: 16px; }
   .topbar-inner { flex-direction: column; justify-content: center; gap: 6px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
   .topbar-fecha { display: none; }
-  .hero-media { position: relative; inset: auto; height: 340px; }
-  .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: 72% 20%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
+  .hero-media { position: relative; inset: auto; height: 380px; }
+  .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
   .hero-card { right: auto; left: 24px; bottom: 16px; padding: 8px 12px; }
   .hero-card strong { font-size: 13px; }
   .hero-copy { max-width: none; padding: 28px 0 8px; }

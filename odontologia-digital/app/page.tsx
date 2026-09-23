@@ -103,14 +103,17 @@ export default function Home() {
         </div>
 
         <div className="hero-media">
-          <Image
-            src="/img/laura-hero-bg.webp"
-            alt="Dra. Laura Leal en su consultorio"
-            width={1536}
-            height={1024}
-            className="hero-bg"
-            priority
-          />
+          <picture>
+            <source media="(max-width: 900px)" srcSet="/img/laura-hero-mobile.webp" />
+            <img
+              src="/img/laura-hero-bg.webp"
+              alt="Dra. Laura Leal en su consultorio"
+              width={1536}
+              height={1024}
+              className="hero-bg"
+              fetchPriority="high"
+            />
+          </picture>
           <div className="hero-card">
             <strong>{WEBINAR.experta}</strong>
             <span>Especialista UBA · 36 años de carrera</span>
@@ -202,23 +205,18 @@ export default function Home() {
 
       {/* Para vos si */}
       <section className="section">
-        <div className="wrap split">
-          <div className="split-photo">
-            <Image src="/img/laura-bio.webp" alt="Dra. Laura Leal en su consultorio" width={800} height={1000} />
-          </div>
-          <div>
-            <span className="eyebrow">¿Es para vos?</span>
-            <h2>
-              Esta clase en vivo <em>es para vos si:</em>
-            </h2>
-            <ul className="check-list big">
-              {paraVos.map((p) => (
-                <li key={p}>
-                  <Check size={18} aria-hidden /> {p}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="wrap narrow center">
+          <span className="eyebrow">¿Es para vos?</span>
+          <h2>
+            Esta clase en vivo <em>es para vos si:</em>
+          </h2>
+          <ul className="check-list big para-vos">
+            {paraVos.map((p) => (
+              <li key={p}>
+                <Check size={18} aria-hidden /> {p}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
