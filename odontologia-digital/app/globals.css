@@ -75,15 +75,9 @@ em { font-style: normal; }
 .topbar-fecha svg { color: var(--amarillo); flex-shrink: 0; }
 
 /* Hero */
-.hero {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(60% 80% at 80% 45%, rgba(14, 77, 100, 0.55), transparent 70%),
-    var(--noche);
-}
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: end; }
-.hero-copy { padding: 56px 0 64px; }
+.hero { position: relative; overflow: hidden; background: var(--noche); }
+.hero > .wrap { position: relative; z-index: 2; }
+.hero-copy { max-width: 590px; padding: 64px 0 72px; }
 .hero h1 { font-size: clamp(30px, 3vw, 42px); font-weight: 700; line-height: 1.18; margin-top: 20px; }
 .hero h1 em { color: var(--verde); }
 .hero-sub { font-family: var(--titulos); font-weight: 300; color: var(--gris); font-size: 19px; margin: 16px 0 20px; line-height: 1.4; }
@@ -110,35 +104,18 @@ em { font-style: normal; }
 .registro-nota { margin: 2px 0 0; font-size: 13px; color: var(--gris); text-align: center; }
 .registro-error { margin: 0; font-size: 14px; color: var(--amarillo); }
 
-.hero-visual { position: relative; align-self: stretch; display: flex; justify-content: center; align-items: flex-end; min-height: 560px; }
-.hero-glow { position: absolute; width: 420px; height: 420px; top: 8%; left: 50%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(64, 224, 230, 0.22), transparent 65%); }
-.hero-tooth { position: absolute; top: 2%; right: -4%; width: 40%; opacity: 0.95; z-index: 1; }
-.hero-photo {
+.hero-media { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero-bg {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-42%);
-  height: 96%;
+  top: 0;
+  right: -6%;
+  height: 100%;
   width: auto;
   max-width: none;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
-  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%), linear-gradient(to right, transparent 0, #000 10%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%), linear-gradient(to right, transparent 0, #000 10%);
-  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 30%);
+  mask-image: linear-gradient(to right, transparent 0, #000 30%);
 }
-.hero-card {
-  position: absolute;
-  z-index: 2;
-  left: 4%;
-  bottom: 56px;
-  background: var(--petroleo);
-  border: 1px solid var(--linea);
-  border-radius: 12px;
-  padding: 12px 16px;
-  line-height: 1.3;
-  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6);
-}
+.hero-card { position: absolute; z-index: 2; right: max(24px, calc((100% - 1180px) / 2 + 24px)); bottom: 40px; background: var(--petroleo); border: 1px solid var(--linea); border-radius: 12px; padding: 12px 16px; line-height: 1.3; box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6); }
 .hero-card strong { display: block; font-size: 15px; }
 .hero-card span { font-size: 12px; color: var(--verde); }
 
@@ -222,14 +199,11 @@ em { font-style: normal; }
   body { font-size: 16px; }
   .topbar-inner { flex-direction: column; justify-content: center; gap: 6px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
   .topbar-fecha { display: none; }
-  .hero-grid { grid-template-columns: 1fr; gap: 0; }
-  .hero-visual { min-height: 0; height: 380px; }
-  .hero-photo { height: 100%; }
-  .hero-tooth { width: 150px; right: 4%; top: 6%; }
-  .hero-glow { width: 280px; height: 280px; }
-  .hero-card { bottom: 12px; left: 0; padding: 8px 12px; }
+  .hero-media { position: relative; inset: auto; height: 340px; }
+  .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: 72% 20%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
+  .hero-card { right: auto; left: 24px; bottom: 16px; padding: 8px 12px; }
   .hero-card strong { font-size: 13px; }
-  .hero-copy { padding: 28px 0 8px; }
+  .hero-copy { max-width: none; padding: 28px 0 8px; }
   .hero-sub { font-size: 18px; }
   .registro { max-width: none; }
   .btn { width: 100%; font-size: 17px; }

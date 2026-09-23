@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="hero" id="registro">
-        <div className="wrap hero-grid">
+        <div className="wrap">
           <div className="hero-copy">
             <span className="badge">Webinar gratuito · Cupos limitados</span>
             <h1>
@@ -100,29 +100,20 @@ export default function Home() {
             <p className="form-intro">Completá tus datos para reservar tu lugar gratis:</p>
             <RegistroForm origen="hero" />
           </div>
+        </div>
 
-          <div className="hero-visual">
-            <div className="hero-glow" aria-hidden />
-            <Image
-              src="/img/logo-diente.webp"
-              alt=""
-              width={360}
-              height={360}
-              className="hero-tooth"
-              priority
-            />
-            <Image
-              src="/img/laura-hero.webp"
-              alt="Dra. Laura Leal"
-              width={410}
-              height={1024}
-              className="hero-photo"
-              priority
-            />
-            <div className="hero-card">
-              <strong>{WEBINAR.experta}</strong>
-              <span>Especialista UBA · 36 años de carrera</span>
-            </div>
+        <div className="hero-media">
+          <Image
+            src="/img/laura-hero-bg.webp"
+            alt="Dra. Laura Leal en su consultorio"
+            width={1536}
+            height={1024}
+            className="hero-bg"
+            priority
+          />
+          <div className="hero-card">
+            <strong>{WEBINAR.experta}</strong>
+            <span>Especialista UBA · 36 años de carrera</span>
           </div>
         </div>
       </section>
@@ -273,7 +264,7 @@ export default function Home() {
             </div>
           </div>
           <div className="split-photo">
-            <Image src="/img/laura-leal.webp" alt="Dra. Laura Leal" width={530} height={1159} />
+            <Image src="/img/laura-bio.webp" alt="Dra. Laura Leal" width={800} height={1000} />
           </div>
         </div>
       </section>
