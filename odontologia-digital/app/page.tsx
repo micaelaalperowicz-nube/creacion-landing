@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CalendarDays, Clock, Check, ScanLine, Layers, Route } from "lucide-react";
 import Countdown from "./components/Countdown";
+import Diente3D from "./components/Diente3D";
 import RegistroForm from "./components/RegistroForm";
 import { WEBINAR } from "./config";
 
@@ -269,7 +270,7 @@ export default function Home() {
       {/* Cierre */}
       <section className="section final">
         <div className="wrap narrow center">
-          <Image src="/img/logo-diente.webp" alt="" width={200} height={200} className="final-tooth" />
+          <Diente3D size={220} />
           <span className="badge">Gratuito · Cupos limitados</span>
           <h2>
             36 años de experiencia, <em>actualizados.</em>

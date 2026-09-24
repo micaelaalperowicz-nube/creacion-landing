@@ -1,7 +1,7 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { CalendarDays, Clock } from "lucide-react";
 import Countdown from "../components/Countdown";
+import Diente3D from "../components/Diente3D";
 import { WEBINAR, WHATSAPP_GRUPO } from "../config";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function Gracias() {
   return (
     <main className="gracias">
       <div className="wrap narrow center">
-        <Image src="/img/logo-diente.webp" alt="" width={150} height={150} className="final-tooth" />
+        <Diente3D size={220} />
         <span className="badge">Registro confirmado</span>
         <h1>
           ¡Listo! <em>Ya tenés tu lugar.</em>

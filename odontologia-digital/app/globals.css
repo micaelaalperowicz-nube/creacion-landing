@@ -192,14 +192,8 @@ em { font-style: normal; }
 
 .final { background: radial-gradient(60% 60% at 50% 20%, rgba(14, 77, 100, 0.6), transparent 70%), var(--noche); }
 .final h2 { margin: 20px 0 14px; font-size: clamp(32px, 4.4vw, 56px); }
-.final-tooth { display: block; margin: 0 auto 12px; animation: girar-diente 8s linear infinite; }
-@keyframes girar-diente {
-  from { transform: perspective(800px) rotateY(0deg); }
-  to { transform: perspective(800px) rotateY(360deg); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .final-tooth { animation: none; }
-}
+.diente-3d { margin: 0 auto 8px; }
+.diente-3d canvas { display: block; }
 .final-form { margin-top: 8px; }
 
 .footer { border-top: 1px solid var(--linea); padding: 28px 0; font-size: 13px; color: var(--gris); text-align: center; }
@@ -214,7 +208,6 @@ em { font-style: normal; }
   .topbar-inner { flex-direction: column; justify-content: center; gap: 6px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
   .topbar-fecha { display: none; }
   .brand-logo { width: 44px; height: 44px; }
-  .final-tooth { width: 160px; height: 160px; }
   .hero-media { position: relative; inset: auto; height: 380px; }
   .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
   .hero-card { right: auto; left: 24px; bottom: 16px; padding: 8px 12px; }
