@@ -93,8 +93,7 @@ export default function Home() {
               costos y lograr <em>resultados más precisos y predecibles</em>.
             </h1>
             <p className="hero-sub">
-              Conocé qué necesitás para empezar y cómo avanzar progresivamente, sin invertir de más ni depender de
-              una marca.
+              Paso a paso y sin invertir de más.
             </p>
             <FechaHora />
             <p className="form-intro">Completá tus datos para reservar tu lugar gratis:</p>
