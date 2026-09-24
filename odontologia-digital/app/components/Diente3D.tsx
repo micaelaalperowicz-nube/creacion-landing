@@ -23,20 +23,20 @@ export default function Diente3D({ size = 200 }: { size?: number }) {
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-      camera.position.set(0, 0.9, 8.6);
-      camera.lookAt(0, 0, 0);
+      camera.position.set(0, 1.3, 8.8);
+      camera.lookAt(0, -0.05, 0);
 
       const cian = new THREE.Color("#3fe3f2");
       const lineMat = new THREE.LineBasicMaterial({
         color: cian,
         transparent: true,
-        opacity: 0.55,
+        opacity: 0.5,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       });
       const pointMat = new THREE.PointsMaterial({
         color: cian,
-        size: 0.06,
+        size: 0.075,
         transparent: true,
         opacity: 0.95,
         blending: THREE.AdditiveBlending,
@@ -72,62 +72,100 @@ export default function Diente3D({ size = 200 }: { size?: number }) {
         g.setIndex(idx);
         return g;
       };
-      // Sección "cuadrada redondeada" (superelipse).
-      const sq = (t: number) => {
-        const c = Math.abs(Math.cos(t));
-        const s2 = Math.abs(Math.sin(t));
-        return 1 / Math.pow(c ** 3 + s2 ** 3, 1 / 3);
+      // Ruido determinista para que la malla tenga triángulos irregulares, como en el logo.
+      const ruido = (x: number, y: number, z: number) => {
+        const n = Math.sin(x * 12.9898 + y * 78.233 + z * 37.719) * 43758.5453;
+        return (n - Math.floor(n)) * 2 - 1;
       };
+      const jitter = (p: [number, number, number], a: number): [number, number, number] => [
+        p[0] + ruido(p[0], p[1], p[2]) * a,
+        p[1] + ruido(p[1], p[2], p[0]) * a,
+        p[2] + ruido(p[2], p[0], p[1]) * a,
+      ];
+      const suave = (t: number) => t * t * (3 - 2 * t);
 
-      // Corona + cuello: tapa con cuatro cúspides y surco central.
+      // Corona: abombada, con cuatro lóbulos (cúspides) redondeados y surco central.
+      const cuspides: [number, number][] = [
+        [-0.5, -0.42],
+        [0.52, -0.4],
+        [-0.48, 0.44],
+        [0.5, 0.46],
+      ];
+      const relieve = (x: number, z: number) =>
+        Math.max(...cuspides.map(([cx, cz]) => Math.exp(-((x - cx) ** 2 + (z - cz) ** 2) / 0.2)));
       const corona = superficie(
         (u, v) => {
+          // v: 0 = centro de la cara oclusal, 1 = cuello.
           let r: number;
-          let y = 1.0 - v * 1.75;
-          if (v < 0.2) r = Math.sin((v / 0.2) * (Math.PI / 2));
-          else if (v < 0.6) r = 1 + 0.06 * Math.sin(((v - 0.2) / 0.4) * Math.PI);
-          else r = 1 - 0.3 * ((v - 0.6) / 0.4);
-          if (v < 0.22) {
-            const cusp = Math.max(0, Math.cos(4 * (u - Math.PI / 4)));
-            y += cusp * 0.2 * (v / 0.22) - 0.3 * (1 - v / 0.22);
+          let y: number;
+          if (v < 0.35) {
+            const s = v / 0.35;
+            r = Math.sin(s * (Math.PI / 2));
+            const x = Math.cos(u) * r;
+            const z = Math.sin(u) * r;
+            y = 0.95 + 0.5 * relieve(x * 1.1, z) - 0.3 * s ** 4;
+          } else {
+            const s = (v - 0.35) / 0.65;
+            r = 1 + 0.1 * Math.sin(s * Math.PI * 0.8) - 0.2 * suave(Math.max(0, (s - 0.5) / 0.5));
+            y = 0.65 - s * 1.2;
           }
-          const k = sq(u) * r;
-          return [Math.cos(u) * k * 1.22, y, Math.sin(u) * k * 0.98];
+          const ex = 1.12 + 0.04 * Math.cos(2 * u);
+          return jitter([Math.cos(u) * r * ex, y, Math.sin(u) * r], v > 0.03 ? 0.03 : 0);
         },
         24,
-        16,
+        14,
       );
       agregar(corona);
 
-      // Dos raíces anchas que nacen del cuello y se afinan hacia la punta.
-      for (const lado of [-1, 1]) {
+      // Tres raíces largas (dos vestibulares y una palatina) que se afinan y abren hacia la punta.
+      const raices: [number, number, number, number][] = [
+        [-0.46, 0.26, -0.28, 0.1],
+        [0.48, 0.24, 0.26, 0.08],
+        [0.02, -0.42, 0.04, -0.24],
+      ];
+      for (const [bx, bz, dx, dz] of raices) {
         const raiz = superficie(
           (u, v) => {
-            const r = 0.5 * (1 - v) + 0.09;
-            const y = -0.45 - v * 2.0;
-            const x = lado * (0.5 + 0.12 * v - 0.18 * v * v) + Math.cos(u) * r;
-            return [x, y, Math.sin(u) * r * 1.35];
+            const r = 0.46 * Math.pow(1 - v, 0.8) + 0.05;
+            const y = -0.25 - v * 2.25;
+            const curva = Math.sin(v * Math.PI * 0.85);
+            const cx = bx + dx * curva - bx * 0.2 * v * v;
+            const cz = bz + dz * curva;
+            return jitter([cx + Math.cos(u) * r, y, cz + Math.sin(u) * r * 0.9], 0.028 * (1 - v));
           },
           12,
-          9,
+          10,
         );
         agregar(raiz);
       }
-      diente.position.y = 0.72;
+      diente.position.y = 0.55;
+      diente.rotation.x = 0.08;
       scene.add(diente);
 
-      // Línea de escaneo horizontal, como en el logo.
-      const anillo = new THREE.Mesh(
-        new THREE.TorusGeometry(1.9, 0.012, 6, 90),
-        new THREE.MeshBasicMaterial({ color: cian, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending }),
+      // Anillo de escaneo fijo a media corona, con halo.
+      const anilloMat = new THREE.MeshBasicMaterial({
+        color: cian,
+        transparent: true,
+        opacity: 0.95,
+        blending: THREE.AdditiveBlending,
+      });
+      const anillo = new THREE.Group();
+      anillo.add(new THREE.Mesh(new THREE.TorusGeometry(2.05, 0.016, 8, 120), anilloMat));
+      anillo.add(
+        new THREE.Mesh(
+          new THREE.TorusGeometry(2.05, 0.045, 8, 120),
+          new THREE.MeshBasicMaterial({ color: cian, transparent: true, opacity: 0.14, blending: THREE.AdditiveBlending }),
+        ),
       );
-      anillo.rotation.x = Math.PI / 2;
-      anillo.position.y = 0.6;
+      anillo.rotation.x = Math.PI / 2 - 0.26;
+      anillo.position.y = 1.05;
       scene.add(anillo);
 
       const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let visible = true;
-      const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
+      const io = new IntersectionObserver(([e]) => {
+        if (e) visible = e.isIntersecting;
+      });
       io.observe(el);
 
       let raf = 0;
@@ -139,7 +177,6 @@ export default function Diente3D({ size = 200 }: { size?: number }) {
         t0 = t;
         if (!reducido) {
           diente.rotation.y += dt * ((Math.PI * 2) / 8);
-          anillo.position.y = 0.6 + Math.sin(t / 900) * 1.1;
         }
         renderer.render(scene, camera);
       };
