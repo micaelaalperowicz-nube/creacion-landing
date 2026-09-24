@@ -71,7 +71,7 @@ export default function Home() {
       <header className="topbar">
         <div className="wrap topbar-inner">
           <div className="brand">
-            <Image src="/img/logo-diente.webp" alt="" width={34} height={34} className="brand-logo" />
+            <Image src="/img/logo-diente.webp" alt="" width={52} height={52} className="brand-logo" />
             <strong>{WEBINAR.nombre}</strong>
           </div>
           <div className="topbar-fecha">
@@ -269,7 +269,7 @@ export default function Home() {
       {/* Cierre */}
       <section className="section final">
         <div className="wrap narrow center">
-          <Image src="/img/logo-diente.webp" alt="" width={140} height={140} className="final-tooth" />
+          <Image src="/img/logo-diente.webp" alt="" width={200} height={200} className="final-tooth" />
           <span className="badge">Gratuito · Cupos limitados</span>
           <h2>
             36 años de experiencia, <em>actualizados.</em>

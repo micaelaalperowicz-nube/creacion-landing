@@ -69,7 +69,8 @@ em { font-style: normal; }
 /* Barra superior */
 .topbar { background: var(--petroleo); border-bottom: 1px solid var(--linea); }
 .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-.brand { display: flex; align-items: center; gap: 10px; line-height: 1.2; }
+.brand { display: flex; align-items: center; gap: 12px; line-height: 1.2; }
+.brand-logo { width: 52px; height: 52px; flex-shrink: 0; }
 .brand strong { display: block; font-family: var(--titulos); font-size: 16px; }
 .topbar-fecha { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
 .topbar-fecha svg { color: var(--amarillo); flex-shrink: 0; }
@@ -191,7 +192,14 @@ em { font-style: normal; }
 
 .final { background: radial-gradient(60% 60% at 50% 20%, rgba(14, 77, 100, 0.6), transparent 70%), var(--noche); }
 .final h2 { margin: 20px 0 14px; font-size: clamp(32px, 4.4vw, 56px); }
-.final-tooth { display: block; margin: 0 auto 12px; }
+.final-tooth { display: block; margin: 0 auto 12px; animation: girar-diente 8s linear infinite; }
+@keyframes girar-diente {
+  from { transform: perspective(800px) rotateY(0deg); }
+  to { transform: perspective(800px) rotateY(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .final-tooth { animation: none; }
+}
 .final-form { margin-top: 8px; }
 
 .footer { border-top: 1px solid var(--linea); padding: 28px 0; font-size: 13px; color: var(--gris); text-align: center; }
@@ -205,6 +213,8 @@ em { font-style: normal; }
   body { font-size: 16px; }
   .topbar-inner { flex-direction: column; justify-content: center; gap: 6px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
   .topbar-fecha { display: none; }
+  .brand-logo { width: 44px; height: 44px; }
+  .final-tooth { width: 160px; height: 160px; }
   .hero-media { position: relative; inset: auto; height: 380px; }
   .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
   .hero-card { right: auto; left: 24px; bottom: 16px; padding: 8px 12px; }
