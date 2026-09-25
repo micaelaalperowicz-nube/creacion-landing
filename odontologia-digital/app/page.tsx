@@ -90,8 +90,8 @@ export default function Home() {
           <div className="hero-copy">
             <span className="badge">Webinar gratuito · Cupos limitados</span>
             <h1>
-              Descubrí cómo incorporar la <em>odontología digital</em> en tu consultorio para optimizar tiempos,
-              costos y lograr <em>resultados más precisos y predecibles</em>.
+              Descubrí cómo la <em>odontología digital</em> te ayuda a optimizar tiempos, reducir costos y lograr{" "}
+              <em>resultados más previsibles</em>.
             </h1>
             <p className="hero-sub">
               Paso a paso y sin invertir de más.
@@ -108,8 +108,8 @@ export default function Home() {
             <img
               src="/img/laura-hero-bg.webp"
               alt="Dra. Laura Leal en su consultorio"
-              width={1536}
-              height={1024}
+              width={1672}
+              height={941}
               className="hero-bg"
               fetchPriority="high"
             />

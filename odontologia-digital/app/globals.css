@@ -111,6 +111,7 @@ em { font-style: normal; }
 .registro-error { margin: 0; font-size: 14px; color: var(--amarillo); }
 
 .hero-media { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero-media::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, var(--noche) 0%, rgba(11, 29, 51, 0.9) 38%, rgba(11, 29, 51, 0.35) 58%, rgba(11, 29, 51, 0) 72%); }
 .hero-bg {
   position: absolute;
   top: 0;
@@ -214,8 +215,9 @@ em { font-style: normal; }
   .topbar-inner { flex-direction: column; justify-content: center; gap: 6px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
   .topbar-fecha { display: none; }
   .brand-logo { width: 44px; height: 44px; }
-  .hero-media { position: relative; inset: auto; height: 380px; }
-  .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
+  .hero-media { position: relative; inset: auto; height: 400px; }
+  .hero-media::after { display: none; }
+  .hero-bg { position: static; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%); mask-image: linear-gradient(to bottom, transparent 0, #000 18%); }
   .hero-card { right: auto; left: 24px; bottom: 16px; padding: 8px 12px; }
   .hero-card strong { font-size: 13px; }
   .hero-copy { max-width: none; padding: 28px 0 8px; }

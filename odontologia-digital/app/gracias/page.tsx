@@ -20,7 +20,6 @@ export default function Gracias() {
         </h1>
         <p className="lead">
           Te esperamos en <strong>{WEBINAR.nombre}</strong>, la clase en vivo y gratuita con la {WEBINAR.experta}.
-          Te enviamos un email con los datos de la clase.
         </p>
         <ul className="fecha-hora">
           <li>
