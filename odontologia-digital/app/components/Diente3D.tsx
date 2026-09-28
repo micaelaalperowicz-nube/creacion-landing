@@ -177,6 +177,8 @@ export default function Diente3D({ size = 200 }: { size?: number }) {
         t0 = t;
         if (!reducido) {
           diente.rotation.y += dt * ((Math.PI * 2) / 8);
+          // El anillo de escaneo recorre el diente de la corona a las raíces y vuelve.
+          anillo.position.y = 0.05 + Math.sin((t / 1000) * ((Math.PI * 2) / 5)) * 1.55;
         }
         renderer.render(scene, camera);
       };
