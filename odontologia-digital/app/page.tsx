@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CalendarDays, Clock, Check, ScanLine, Layers, Route } from "lucide-react";
+import { CalendarDays, Clock, Check, Gift, ScanLine, Layers, Route } from "lucide-react";
 import Countdown from "./components/Countdown";
 import Diente3D from "./components/Diente3D";
 import RegistroForm from "./components/RegistroForm";
@@ -189,6 +189,19 @@ export default function Home() {
                 </ul>
               </article>
             ))}
+          </div>
+
+          <div className="sorteo">
+            <div className="sorteo-icon" aria-hidden>
+              <Gift size={34} strokeWidth={1.8} />
+            </div>
+            <div className="sorteo-copy">
+              <span className="eyebrow">Sorteo en vivo</span>
+              <p className="sorteo-title">
+                Entre todos los participantes de la clase vamos a sortear un <em>CHOICE™ 2 de BISCO</em>
+              </p>
+              <p className="sorteo-text">Cemento fotopolimerizable para carillas. Conectate en vivo para participar.</p>
+            </div>
           </div>
 
           <div className="transparency center narrow">
