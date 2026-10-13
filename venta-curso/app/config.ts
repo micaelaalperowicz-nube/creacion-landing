@@ -7,9 +7,9 @@ export const CURSO = {
   precio: "USD 497",
   cupos: 200,
   // Fechas en hora de Argentina (UTC-3).
-  aperturaISO: "2026-10-13T19:00:00-03:00",
+  aperturaISO: "2026-10-13T20:30:00-03:00",
   cierreISO: "2026-10-15T23:59:00-03:00",
-  aperturaTexto: "13/10 a las 19:00",
+  aperturaTexto: "13/10 a las 20:30",
   cierreTexto: "15/10 a las 23:59",
 };
 
@@ -27,9 +27,10 @@ export const BLOQUES = {
   muestras: { mostrar: true },
   // Beneficio opcional para adquirir un escáner (sin marca ni modelo).
   escaner: { mostrar: true },
-  // Ocultos hasta confirmar condiciones o recibir material aprobado.
+  // Garantía confirmada: 7 días desde el comienzo del curso.
+  garantia: { mostrar: true },
+  // Ocultos: el equipo pidió no mostrar inicio de clases, testimonios ni webinar.
   cronograma: { mostrar: false },
-  garantia: { mostrar: false },
   testimonios: { mostrar: false },
   replay: { mostrar: false, url: "" },
 };

@@ -349,3 +349,19 @@ em { font-style: normal; }
   .sticky-info span { display: block; font-size: 11px; font-weight: 700; color: var(--amarillo); }
   .btn.btn-sm { width: auto; min-height: 48px; padding: 0 18px; font-size: 16px; white-space: nowrap; }
 }
+
+.rapida-card .rapida-nota { margin-top: 8px; font-size: 14px; color: var(--verde); }
+.garantia { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--linea); }
+.garantia svg { color: var(--verde); flex-shrink: 0; }
+.garantia p { margin: 0; font-size: 16px; color: var(--gris); }
+.garantia strong { color: var(--blanco); }
+
+/* Primer pantallazo acotado en celular */
+@media (max-width: 900px) {
+  .hero-media { height: 300px; }
+  .hero-copy { padding-top: 22px; }
+  .hero h1 { margin-top: 14px; }
+  .hero-sub { margin: 12px 0 16px; }
+  .pills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 18px; }
+  .pills li { padding: 6px 10px; font-size: 12.5px; border-radius: 10px; line-height: 1.25; }
+}

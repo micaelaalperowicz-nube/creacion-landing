@@ -10,6 +10,7 @@ import {
   MessageCircle,
   PlayCircle,
   ScanLine,
+  ShieldCheck,
   Users,
 } from "lucide-react";
 import { BLOQUES, CRONOGRAMA, CUPOS_TEXTO, CURSO } from "./config";
@@ -57,9 +58,10 @@ const CLASES = [
 
 const INCLUYE = [
   "Ocho clases grabadas",
+  "Un PDF por clase",
   "Acceso durante dos años",
   "Certificado de finalización",
-  "Dos encuentros en vivo de preguntas y respuestas",
+  "Dos encuentros en vivo de preguntas y respuestas, que quedan grabados",
   "Acompañamiento en el grupo privado de WhatsApp",
   "Checklist de implementación",
 ];
@@ -67,7 +69,7 @@ const INCLUYE = [
 const FAQ = [
   {
     q: "¿El curso es en vivo o grabado?",
-    a: "El curso tiene ocho clases grabadas. Además, incluye dos encuentros grupales en vivo de preguntas y respuestas con Laura.",
+    a: "El curso tiene ocho clases grabadas. Cada clase incluye su PDF. Además, hay dos encuentros grupales en vivo de preguntas y respuestas con Laura, que quedan grabados.",
   },
   { q: "¿Cuánto tiempo tengo acceso?", a: "Dos años, en una plataforma de formación online." },
   { q: "¿Incluye certificado?", a: "Sí, un certificado de finalización al completar el curso." },
@@ -77,7 +79,7 @@ const FAQ = [
   },
   {
     q: "¿Incluye acompañamiento?",
-    a: "Sí, en un grupo privado de WhatsApp para participantes, durante el recorrido de la formación.",
+    a: "Sí, en un grupo privado de WhatsApp para participantes durante toda la formación. Los horarios se coordinan con el grupo.",
   },
   {
     q: "¿Necesito comprar el escáner?",
@@ -93,7 +95,11 @@ const FAQ = [
   },
   {
     q: "¿Puedo pagar en pesos o en cuotas?",
-    a: "Consultá al equipo las formas de pago disponibles y sus condiciones antes de completar tu inscripción.",
+    a: "Las formas de pago se coordinan por WhatsApp con el equipo al momento de tu inscripción.",
+  },
+  {
+    q: "¿Tiene garantía?",
+    a: "Sí. Tenés una garantía de 7 días desde el comienzo del curso.",
   },
   {
     q: "¿Hasta cuándo puedo inscribirme?",
@@ -154,8 +160,7 @@ export default function Home() {
             </h1>
             <p className="hero-sub">
               En {CURSO.nombre}, la {CURSO.docente} te acompaña a comprender el flujo digital y ordenar tus próximos
-              pasos. Ocho clases grabadas, acceso durante dos años y certificado de finalización, con encuentros en vivo
-              y recursos para avanzar en la implementación.
+              pasos.
             </p>
             <ul className="pills">
               {INCLUYE_CORTO.map((t) => (
@@ -315,7 +320,7 @@ export default function Home() {
             <div className="card">
               <PlayCircle className="card-icon" size={30} aria-hidden />
               <h3>Ocho clases grabadas</h3>
-              <p>Accedé a ocho clases grabadas y organizá tu estudio según tus tiempos.</p>
+              <p>Accedé a ocho clases grabadas, cada una con su PDF, y organizá tu estudio según tus tiempos.</p>
             </div>
             <div className="card">
               <GraduationCap className="card-icon" size={30} aria-hidden />
@@ -364,7 +369,7 @@ export default function Home() {
               <p>
                 Aclarás tus dudas en dos encuentros grupales de preguntas y respuestas con Laura. El primero se realiza
                 después de las primeras cuatro clases. El segundo, después de las cuatro clases restantes, para cerrar
-                el recorrido y revisar las dudas finales.
+                el recorrido y revisar las dudas finales. Los dos encuentros quedan grabados.
               </p>
             </div>
             <div className="card bono">
@@ -372,8 +377,8 @@ export default function Home() {
               <MessageCircle className="card-icon" size={30} aria-hidden />
               <h3>Acompañamiento por WhatsApp</h3>
               <p>
-                Formá parte de un grupo privado de WhatsApp exclusivo para participantes, con acompañamiento durante el
-                recorrido de la formación.
+                Formá parte de un grupo privado de WhatsApp exclusivo para participantes, con acompañamiento durante
+                toda la formación. Los horarios se coordinan en el grupo.
               </p>
             </div>
             <div className="card bono">
@@ -395,11 +400,7 @@ export default function Home() {
           <div className="oferta">
             <span className="eyebrow">Tu inscripción</span>
             <h2>{CURSO.nombre}</h2>
-            <p className="oferta-intro">
-              Tu inscripción incluye ocho clases grabadas, acceso durante dos años, certificado de finalización, dos
-              encuentros en vivo de preguntas y respuestas, acompañamiento en el grupo privado de WhatsApp y checklist
-              de implementación.
-            </p>
+            <p className="oferta-intro">Tu inscripción incluye:</p>
             <ul className="check-list">
               {INCLUYE.map((t) => (
                 <li key={t}>
@@ -413,6 +414,14 @@ export default function Home() {
             </div>
             <Cupos />
             <Inscripcion origen="oferta" conCupos={false} />
+            {BLOQUES.garantia.mostrar && (
+              <div className="garantia">
+                <ShieldCheck size={26} aria-hidden />
+                <p>
+                  <strong>Garantía de 7 días</strong> desde el comienzo del curso.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -431,7 +440,10 @@ export default function Home() {
                   <div className="rapida-card">
                     <Award size={30} aria-hidden />
                     <h3>Beca del 100 %</h3>
-                    <p>Para la primera persona en inscribirse.</p>
+                    <p>
+                      Para la primera persona que abone el curso. Anunciamos a quién le corresponde al cierre de las
+                      inscripciones.
+                    </p>
                   </div>
                 )}
                 {BLOQUES.muestras.mostrar && (
@@ -439,6 +451,7 @@ export default function Home() {
                     <Gift size={30} aria-hidden />
                     <h3>Dupla de muestras de resina y adhesivo</h3>
                     <p>Las primeras diez personas en inscribirse la reciben de regalo.</p>
+                    <p className="rapida-nota">Retiro en CABA o envío con costo a cargo de quien la recibe.</p>
                   </div>
                 )}
               </div>
@@ -458,7 +471,10 @@ export default function Home() {
                     <h2>Condiciones especiales para adquirir un escáner</h2>
                   </div>
                 </div>
-                <p>Al inscribirte al curso, accedés a condiciones especiales para adquirir un escáner:</p>
+                <p>
+                  Todas las personas que se inscriban al curso acceden a condiciones especiales para adquirir un
+                  escáner:
+                </p>
                 <div className="escaner-opciones">
                   <div>
                     <span>6 cuotas sin interés de</span>
@@ -512,8 +528,8 @@ export default function Home() {
             Tu próximo paso en la <em>odontología digital</em>
           </h2>
           <p className="lead">
-            Ocho clases grabadas, dos años de acceso, certificado de finalización, dos encuentros en vivo con Laura,
-            grupo privado de WhatsApp y checklist de implementación. Todo por {CURSO.precio}.
+            Ocho clases grabadas con su PDF, dos años de acceso, certificado de finalización, dos encuentros en vivo con
+            Laura, grupo privado de WhatsApp y checklist de implementación. Todo por {CURSO.precio}.
           </p>
           <Countdown conTitulo />
           <Cupos />
